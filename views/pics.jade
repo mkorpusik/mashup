@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  //- p Welcome to #{title}
+  div(id="container")
+     div(id="carousel") 
+      each img, i in imgs
+        //-get the link on the image to be clickable 
+        img(src="#{img.url}", href="#{img.airbnbLink}") 
+    a(class="btn btn-mini btn-primary", id="ui-carousel-prev")(href='#') prev
+    a(class="btn btn-mini btn-primary", id="ui-carousel-next")(href='#') next
+
+  script $( "#carousel" ).rcarousel( {width: 150, height: 100, visible:5, step:1, margin:10, auto:{enabled: true}} );
