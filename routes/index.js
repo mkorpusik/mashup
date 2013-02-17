@@ -82,3 +82,11 @@ exports.pics = function(req, res){
     res.render('pics', { imgs:urls, title: 'Pictures of Places to Stay' });
   });
 };
+
+exports.about = function(req, res){
+  res.render('about', {title: 'About'});
+};
+
+exports.contact = function(req, res){
+  res.render('contact', {title: 'Contact'});
+};
