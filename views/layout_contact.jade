@@ -1,0 +1,41 @@
+doctype 5
+html
+    head
+    title= title
+    meta(charset='utf-8')
+    link(href="http://bootswatch.com/cerulean/bootstrap.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js")
+    link(type='text/css', rel='stylesheet', href='/javascripts/widget/css/rcarousel.css')
+    script(src='http://code.jquery.com/jquery.js')
+    script(src='/javascripts/links.js')
+    script(type='text/javascript', src='/javascripts/widget/lib/jquery-1.7.1.min.js')
+    script(type='text/javascript', src='/javascripts/widget/lib/jquery.ui.core.min.js')
+    script(type='text/javascript', src='/javascripts/widget/lib/jquery.ui.widget.min.js')
+    script(type='text/javascript', src='/javascripts/widget/lib/jquery.ui.rcarousel.min.js')
+
+    style
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href='/pics').brand Places to Stay
+          .nav-collapse.collapse
+            ul.nav
+              console.log(pageName);
+              li
+                a(href='/') Home
+              li
+                a(href='/about') About
+              li.active
+                a(href='/contact') Contact
+    .container
+      block content
