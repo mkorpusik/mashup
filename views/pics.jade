@@ -2,11 +2,14 @@ extends layout
 
 block content
   h1= title
+  h5 in San Francisco, Boston, Seattle, Chicago, and New York
   div(id="container")
      div(id="carousel") 
       each img, i in imgs
-        a(href="#{img.airbnbLink}")
-          img(src="#{img.url}")
+        div(id="wrapper")
+          a(href="#{img.airbnbLink}")
+            img(src="#{img.url}")
+          p #{img.location}
     a(class="btn btn-mini btn-primary", id="ui-carousel-prev")(href='#') prev
     a(class="btn btn-mini btn-primary", id="ui-carousel-next")(href='#') next
 

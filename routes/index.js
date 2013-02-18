@@ -26,7 +26,7 @@ exports.index = function(req, res){
       console.log(link);
 
       // add to mongoose db
-      var img = new Img({ url:url, name:name, airbnbLink:link});
+      var img = new Img({ url:url, name:name, airbnbLink:link, location:"San Francisco, CA"});
       img.save(function (err) {
         if (err)
           return console.log(err);
@@ -49,7 +49,76 @@ exports.index = function(req, res){
       console.log(link);
 
       // add to mongoose db
-      var img = new Img({ url:url, name:name, airbnbLink:link});
+      var img = new Img({ url:url, name:name, airbnbLink:link, location:"New York, NY"});
+      img.save(function (err) {
+        if (err)
+          return console.log(err);
+      });
+    }
+  });
+
+  new YQL.exec('select * from data.html.cssselect where url="https://www.airbnb.com/s/Boston-MA" and css=".pop_image_small a"', function(response) {
+    results = response.query.results.results.a;
+    for (var i in results) {
+      var res = results[i];
+      console.log(res);
+      url = res.img.src;
+      name = res.title;
+      link = "https://www.airbnb.com"+res.href;
+      if (url=='//a1.muscache.com/airbnb/static/page2/default-listing-thumbnail-a8408bbd55f4844b681f628f7d521d13.jpg')
+        continue;
+      console.log(url);
+      console.log(name);
+      console.log(link);
+
+      // add to mongoose db
+      var img = new Img({ url:url, name:name, airbnbLink:link, location:"Boston, MA"});
+      img.save(function (err) {
+        if (err)
+          return console.log(err);
+      });
+    }
+  });
+
+  new YQL.exec('select * from data.html.cssselect where url="https://www.airbnb.com/s/Seattle-WA" and css=".pop_image_small a"', function(response) {
+    results = response.query.results.results.a;
+    for (var i in results) {
+      var res = results[i];
+      console.log(res);
+      url = res.img.src;
+      name = res.title;
+      link = "https://www.airbnb.com"+res.href;
+      if (url=='//a1.muscache.com/airbnb/static/page2/default-listing-thumbnail-a8408bbd55f4844b681f628f7d521d13.jpg')
+        continue;
+      console.log(url);
+      console.log(name);
+      console.log(link);
+
+      // add to mongoose db
+      var img = new Img({ url:url, name:name, airbnbLink:link, location:"Seattle, WA"});
+      img.save(function (err) {
+        if (err)
+          return console.log(err);
+      });
+    }
+  });
+
+  new YQL.exec('select * from data.html.cssselect where url="https://www.airbnb.com/s/Chicago-IL" and css=".pop_image_small a"', function(response) {
+    results = response.query.results.results.a;
+    for (var i in results) {
+      var res = results[i];
+      console.log(res);
+      url = res.img.src;
+      name = res.title;
+      link = "https://www.airbnb.com"+res.href;
+      if (url=='//a1.muscache.com/airbnb/static/page2/default-listing-thumbnail-a8408bbd55f4844b681f628f7d521d13.jpg')
+        continue;
+      console.log(url);
+      console.log(name);
+      console.log(link);
+
+      // add to mongoose db
+      var img = new Img({ url:url, name:name, airbnbLink:link, location:"Chicago, IL"});
       img.save(function (err) {
         if (err)
           return console.log(err);
