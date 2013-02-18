@@ -6,6 +6,8 @@ pagName = 'Home';
 
 block content
   h1= title
-  h5 in San Francisco, Boston, Seattle, Chicago, and New York
-  form(id="get_pics", action='/pics', method='get')
-    input(class="btn btn-large btn-primary", type="submit", value="Go!")
+  //- h5 in San Francisco, Boston, Seattle, Chicago, and New York
+  form(id="get_pics", action='/pics', method='post')
+    input(type='text', placeholder='Location', name='Location')
+    div(class="control-group")
+      input(class="btn btn-large btn-primary", type="submit", value="Go!")
